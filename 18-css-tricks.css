@@ -1,0 +1,578 @@
+/* 1. Responsive CSS Grids */
+* {
+    box-sizing: border-box;
+}
+
+.grid {
+    display: grid;
+    grid-auto-columns: calc(80vh / 4);
+    grid-template-rows: repeat(4, 1fr);
+    grid-auto-flow: column;
+    grid-gap: 1em;
+    height: 95vh;
+}
+
+.grid-item:nth-child(3n) {
+    background-color: green;
+}
+
+.grid-item:nth-child(3n + 2) {
+    background-color: yellow;
+}
+
+/* 2. Vertically Align with Flexbox */
+.align-vertically {
+    width: 100%;
+    height: 400px;
+    background-color: black;
+    color: #eff542;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+}
+
+/* 3. SVG for Icons and Logos */
+.element {
+    background-image: url(logo.svg);
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+/* 4. Masking */
+.masked-1 {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 5%, black 75%);
+    mask-image: linear-gradient(to bottom, transparent 5%, black 75%);
+}
+
+.masked-2 {
+    -webkit-mask-image: radial-gradient(ellipse 70% 90% at 50% 50%,
+            black 40%,
+            transparent 50%);
+    mask-image: radial-gradient(ellipse 70% 90% at 50% 50%,
+            black 40%,
+            transparent 50%);
+}
+
+/* 5. Shape Outside */
+.shape {
+    display: flex;
+    padding-left: 50px;
+}
+
+.shape-outside {
+    padding-right: 10px;
+    width: 50%;
+}
+
+.shape-circle {
+    height: 150px;
+    width: 150px;
+    background-color: #dc143c;
+    border-radius: 50%;
+    float: left;
+    margin: 25px 25px 5px 0;
+    shape-outside: circle();
+}
+
+.shape p {
+    font-size: 18px;
+}
+
+/* 6. Zoom on Hover */
+.zoom-effect {
+    background-color: #1d1f20;
+    padding-top: 40px;
+    padding-bottom: 760px;
+}
+
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.container {
+    float: left;
+    position: relative;
+    width: 640px;
+    height: 360px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.image-card img {
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+
+.container:hover .image-card img {
+    transform: scale(1.1);
+}
+
+/* 7. Scroll Snapping */
+.no-support {
+    text-align: center;
+    padding: 5px;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ee6620;
+    color: #fff;
+    font-size: 16px;
+}
+
+@supports (scroll-snap-type: y mandatory) {
+    .no-support {
+        display: none;
+    }
+}
+
+.scroll {
+    display: flex;
+    gap: 10px;
+}
+
+.table {
+    border: 2px solid black;
+    height: 500px;
+    width: 33%;
+    text-align: center;
+    position: relative;
+}
+
+.x-scroll {
+    border: 2px solid black;
+    margin: 10px;
+    height: 440px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+}
+
+.x-mandatory {
+    margin: 10px;
+    height: 416px;
+    color: white;
+    padding: 20px;
+    font-size: 50px;
+    scroll-margin: 10px;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    display: inline-block;
+    width: 575px;
+}
+
+.x-mandatory:nth-child(1) {
+    background: #1d1e21;
+}
+
+.x-mandatory:nth-child(2) {
+    background: #ee6620;
+}
+
+.x-mandatory:nth-child(3) {
+    background: #777ba0;
+}
+
+.x-mandatory:nth-child(4) {
+    background: #da1e62;
+}
+
+.y-scroll {
+    border: 2px solid black;
+    margin: 10px;
+    height: 440px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+}
+
+.y-mandatory {
+    margin: 10px;
+    height: 416px;
+    color: white;
+    padding: 20px;
+    font-size: 50px;
+    scroll-margin: 10px;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}
+
+.y-mandatory:nth-child(1) {
+    background: #1d1e21;
+}
+
+.y-mandatory:nth-child(2) {
+    background: #ee6620;
+}
+
+.y-mandatory:nth-child(3) {
+    background: #777ba0;
+}
+
+.y-mandatory:nth-child(4) {
+    background: #da1e62;
+}
+
+.both-scroll {
+    border: 2px solid black;
+    margin: 10px;
+    height: 440px;
+    width: 575px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    scroll-snap-type: both mandatory;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.both-mandatory {
+    margin: 10px;
+    width: 530px;
+    height: 416px;
+    color: white;
+    padding: 20px;
+    font-size: 50px;
+    scroll-margin: 10px;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}
+
+.both-mandatory:nth-child(1) {
+    background: #1d1e21;
+}
+
+.both-mandatory:nth-child(2) {
+    background: #ee6620;
+}
+
+.both-mandatory:nth-child(3) {
+    background: #777ba0;
+}
+
+.both-mandatory:nth-child(4) {
+    background: #da1e62;
+}
+
+/* 8. Variable Fonts */
+:root {
+    --green: #ff0080;
+    --purple: #6e1f58;
+    --yellow: #ff8c00;
+}
+
+.variable_font {
+    background: #23074d;
+    overflow: hidden;
+    height: 700px;
+}
+
+@font-face {
+    font-family: "Gingham Variable";
+    src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Gingham.woff2") format("woff2"),
+        url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Gingham.woff") format("woff");
+    font-weight: 300 700;
+    font-stretch: 1% 150%;
+}
+
+.var_font {
+    position: absolute;
+    transform: translate(0, -50%);
+    margin-top: 300px;
+    width: 100%;
+    font-size: 16vw;
+    font-family: "Gingham Variable", BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
+    font-stretch: 150%;
+    color: var(--yellow);
+    white-space: nowrap;
+    text-align: center;
+    transition: font-weight 250ms ease-out, font-stretch 250ms ease-out;
+    text-shadow: -1px -1px 0 var(--purple), 1px -1px 0 var(--purple),
+        -1px 1px 0 var(--purple), 1px 1px 0 var(--purple), 1px 0px 0px var(--green),
+        0px 1px 0px var(--green), 2px 1px 0px var(--green), 1px 2px 0px var(--green),
+        3px 2px 0px var(--green), 2px 3px 0px var(--green), 4px 3px 0px var(--green),
+        3px 4px 0px var(--green), 5px 4px 0px var(--green),
+        3px 5px 0px var(--purple), 6px 5px 0px var(--purple), -1px 2px 0 black,
+        0 3px 0 var(--purple), 1px 4px 0 var(--purple), 2px 5px 0px var(--purple),
+        2px -1px 0 var(--purple), 3px 0 0 var(--purple), 4px 1px 0 var(--purple),
+        5px 2px 0px var(--purple), 6px 3px 0 var(--purple), 7px 4px 0 var(--purple);
+}
+
+span {
+    font-weight: 300;
+    font-stretch: 1%;
+    transition: all 250ms ease-out;
+}
+
+.var_font:hover {
+    font-weight: 300;
+    font-stretch: 1%;
+}
+
+span:hover {
+    font-weight: 700;
+    font-stretch: 150%;
+}
+
+/* 9. Generate Text Animation */
+.typewriter_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: clamp(2rem, 2.8vw, 5rem);
+    font-family: Raleway;
+    font-weight: bold;
+}
+
+.typewriter {
+    width: 21.5ch;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid #212121;
+    animation: cursor 1s step-start infinite, text 5s steps(20) alternate infinite;
+}
+
+@keyframes cursor {
+
+    0%,
+    100% {
+        border-color: #212121;
+    }
+}
+
+@keyframes text {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 21.5ch;
+    }
+}
+
+/* 10. Initial Letter */
+.initial_letter {
+    font-size: 20px;
+}
+
+.initial_letter::first-letter {
+    color: red;
+    font-weight: 900;
+    font-size: 100px;
+    float: left;
+    padding-right: 20px;
+    line-height: 1;
+}
+
+/* 11. Logical Properties and Values */
+.logical_properties {
+    box-sizing: border-box;
+    font: 1.2em Helvetica, sans-serif;
+    padding: 40px;
+    background-color: #fff;
+    color: rgb(108, 91, 123);
+}
+
+.controls {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 0.5em;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 0 0 2em 0;
+}
+
+.controls select {
+    font-size: 0.9em;
+}
+
+#logical_container {
+    writing-mode: horizontal-tb;
+}
+
+.logical_box {
+    border: 5px solid rgb(108, 91, 123);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: 100px;
+    inline-size: 200px;
+}
+
+.physical_box {
+    border: 5px solid rgb(108, 91, 123);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    height: 100px;
+    width: 200px;
+}
+
+/* 12. CSS Subgrids */
+.subgrid {
+    margin: 40px;
+}
+
+.subgrid_container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+    background-color: #fff;
+    color: #444;
+}
+
+.subgrid_box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.subgrid_box .subgrid_box {
+    background-color: #ccc;
+    color: #444;
+}
+
+.subgrid_1 {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.subgrid_2 {
+    grid-column: 3 / 5;
+    grid-row: 1;
+}
+
+.subgrid_3 {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+}
+
+.subgrid_4 {
+    grid-column: 3 / 5;
+    grid-row: 2 / 4;
+}
+
+.subgrid_a {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.subgrid_b {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.subgrid_c {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* 13. Smart Quotes in HTML/CSS */
+q {
+    quotes: "“" "”";
+    font-size: 2rem;
+    background-color: black;
+    color: red;
+}
+
+/* 14. Comma-Separated Lists */
+.comma_separated {
+    font-family: Nurito;
+    font-size: 22px;
+}
+
+ul>li:not(:last-child)::after {
+    content: ",";
+}
+
+/* 15. Feature Query */
+
+/* 16. Background Repeat */
+.background_repeat {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.bg_repeat {
+    border: 2px solid black;
+    height: 300px;
+}
+
+.bg_repeat div {
+    height: 220px;
+    background: url(bitcoin-2953851_640.png);
+    background-size: 30px;
+}
+
+#repeat {
+    background-repeat: repeat;
+}
+
+#repeat-x {
+    background-repeat: repeat-x;
+}
+
+#repeat-y {
+    background-repeat: repeat-y;
+}
+
+#space {
+    background-repeat: space;
+}
+
+#round {
+    background-repeat: round;
+}
+
+#no-repeat {
+    background-repeat: no-repeat;
+}
+
+/* 17. CSS Gradients */
+.css_gradients {
+    margin: 0;
+    padding: 0;
+    height: 95vh;
+    background-image: linear-gradient(-225deg,
+            #3498db 0,
+            #9b59b6 29%,
+            #e74c3c 67%,
+            #f1c40f 100%);
+    background-size: 500% 500%;
+    animation: bg 8s linear infinite;
+}
+
+@keyframes bg {
+    50% {
+        background-position: 100% 100%;
+    }
+}
+
+/* 18. Truncate Strings */
+.truncate_strings {
+    height: 95vh;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: #ccc;
+}
+
+.truncate_strings h1 {
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 20px;
+    font-size: 1.3rem;
+    margin: 0;
+    background-color: white;
+    resize: horizontal;
+    color: black;
+}
